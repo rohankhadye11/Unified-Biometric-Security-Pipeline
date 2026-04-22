@@ -1,0 +1,99 @@
+/* Enterprise Security Operations Center - Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-primary: #060912;
+  --bg-secondary: #0d1117;
+  --bg-card: rgba(13, 17, 23, 0.8);
+  --border: rgba(255, 255, 255, 0.06);
+  --border-active: rgba(56, 189, 248, 0.4);
+  --text-primary: #f0f6fc;
+  --text-secondary: #8b949e;
+  --text-muted: #484f58;
+  --accent-blue: #38bdf8;
+  --accent-blue-dim: rgba(56, 189, 248, 0.15);
+  --accent-green: #3fb950;
+  --accent-green-dim: rgba(63, 185, 80, 0.15);
+  --accent-red: #f85149;
+  --accent-red-dim: rgba(248, 81, 73, 0.15);
+  --accent-purple: #a371f7;
+  --accent-orange: #f0883e;
+  --glow-blue: 0 0 20px rgba(56, 189, 248, 0.3);
+  --glow-red: 0 0 20px rgba(248, 81, 73, 0.4);
+  --glow-green: 0 0 20px rgba(63, 185, 80, 0.3);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background-color: var(--bg-primary);
+  background-image:
+    radial-gradient(ellipse at 10% 0%, rgba(56, 189, 248, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 90% 0%, rgba(163, 113, 247, 0.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 100%, rgba(63, 185, 80, 0.04) 0%, transparent 50%);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.2); }
+
+/* Shimmer Skeleton Animation */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 25%, rgba(255,255,255,0.07) 50%, rgba(255,255,255,0.03) 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+  border-radius: 6px;
+}
+
+/* Pulse animations */
+@keyframes pulse-ring {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2); opacity: 0; }
+}
+
+@keyframes radar-sweep {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes threat-blink {
+  0%, 100% { opacity: 1; box-shadow: var(--glow-red); }
+  50% { opacity: 0.7; box-shadow: none; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes float-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Utility classes */
+.font-mono { font-family: 'JetBrains Mono', monospace; }
+.animate-float-up { animation: float-up 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-slide-right { animation: slide-in-right 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
